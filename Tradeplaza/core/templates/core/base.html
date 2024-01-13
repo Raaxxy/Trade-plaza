@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>{% block title %}{% endblock %} | TradePlaza</title>
+</head>
+<body>
+    <nav class="py-6 px-6 flex justify-between items-center border-b border-gray-200">
+        <div class="flex items-center gap-4">
+          <a class="text-xl font-semibold" href="/">
+            TradePlaza
+          </a>
+        </div>
+        <div class="flex items-center gap-4">
+          <div class="relative w-64">
+                <div class="relative w-full max-w-md mx-auto">
+                    <input
+                    class="flex h-10 border border-input px-3 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 w-full pl-8 pr-4 py-2 rounded-full bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 transition-all duration-200 ease-in-out"
+                    placeholder="Search for products..."
+                    type="search"
+                    />
+                    <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="absolute left-2.5 top-2.5 h-4 w-4 text-gray-500 dark:text-gray-400"
+                    >
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <path d="m21 21-4.3-4.3"></path>
+                    </svg>
+                </div>
+          </div>
+          <a
+            class="px-4 py-2 rounded-full text-white bg-green-500 hover:bg-green-600 dark:bg-green-400 dark:hover:bg-green-300"
+            href="#"
+          >
+            List Items
+          </a>
+          <a
+            class="px-4 py-2 rounded-full text-white bg-green-500 hover:bg-green-600 dark:bg-green-400 dark:hover:bg-green-300"
+            href="#"
+          >
+            Browse Categories
+          </a>
+          <a
+            class="px-4 py-2 rounded-full text-white bg-blue-500 hover:bg-blue-600 dark:bg-blue-400 dark:hover:bg-blue-300"
+            href="#"
+          >
+            Sign Up
+          </a>
+          <a
+            class="px-4 py-2 rounded-full text-white bg-blue-500 hover:bg-blue-600 dark:bg-blue-400 dark:hover:bg-blue-300"
+            href="#"
+          >
+            Log In
+          </a>
+        
+        </div>
+      </nav>
+      <div class="px-6 py-6">
+            {% block content %}
+            
+            {% endblock %}
+      </div>
+      
+
+      <footer class="bg-white rounded-lg shadow m-4">
+        <div class="w-full max-w-screen-xl mx-auto p-4 md:py-8">
+            <div class="sm:flex sm:items-center sm:justify-between">
+                <a href="#" class="flex items-center mb-4 sm:mb-0 space-x-3 rtl:space-x-reverse">
+                    <img src="https://flowbite.com/docs/images/logo.svg" class="h-8" alt="Flowbite Logo" />
+                    <span class="self-center text-2xl font-semibold whitespace-nowrap ">TradePlaza</span>
+                </a>
+                <ul class="flex flex-wrap items-center mb-6 text-sm font-medium text-gray-500 sm:mb-0 ">
+                    <li>
+                        <a href="#" class="hover:underline me-4 md:me-6">About</a>
+                    </li>
+                    <li>
+                        <a href="#" class="hover:underline me-4 md:me-6">Privacy Policy</a>
+                    </li>
+                    <li>
+                        <a href="#" class="hover:underline me-4 md:me-6">Licensing</a>
+                    </li>
+                    <li>
+                        <a href="#" class="hover:underline">Contact</a>
+                    </li>
+                </ul>
+            </div>
+            <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
+            <span class="block text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2024 <a href="#" class="hover:underline">TradePlaza™</a>. All Rights Reserved.</span>
+        </div>
+      </footer>
+
+
+</body>
+</html>
