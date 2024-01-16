@@ -37,6 +37,10 @@
               <a class="px-4 py-2 rounded-full text-white bg-blue-500 hover:bg-blue-600 dark:bg-blue-400 dark:hover:bg-blue-300" href="{% url 'dashboard:index' %}">
                 Dashboard
               </a>
+              <form method="post" class="px-4 py-2 rounded-full text-white bg-blue-500 hover:bg-blue-600 dark:bg-blue-400 dark:hover:bg-blue-300" action="{% url 'core:logout' %}">
+                {% csrf_token %}
+                <button type="submit">Logout</button>
+              </form>
           {% else %}
               <a class="px-4 py-2 rounded-full text-white bg-blue-500 hover:bg-blue-600 dark:bg-blue-400 dark:hover:bg-blue-300" href="{% url 'core:signup' %}">
                 Sign Up
