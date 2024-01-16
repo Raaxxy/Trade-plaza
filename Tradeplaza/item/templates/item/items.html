@@ -1,0 +1,58 @@
+{% extends "core/base.html" %}
+
+{% block title %}Search results{% endblock  %}
+
+{% block content %}
+<div class="flex flex-row gap-4">
+    <div class="mt-6 pt-2 pb-6 py-12 grid grid-cols-4 gap-4 bg-gray-100">
+        <hr>
+        <div class="col-span-1 flex flex-col">
+            <h2 class="font-semibold text-xl self-start pt-4 pb-6">Categories</h2>
+        <hr class="my-2">
+            <ul class="flex flex-col self-start text-[16px]">
+                {% for category in categories %}
+                    <li class="py-2 px-2 rounded-xl{% if category.id == category_id %} bg-gray-300 {% endif %}">
+                        <a href="{% url 'item:items' %}?query={{toy}}&category={{category.id}}">{{category.name}}</a>
+                    </li>    
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+    <div class="mt-6 px-6 py-12 bg-gray-100 rounded-xl">
+        <h2 class="mb-12 text-2xl font-semibold text-center">Search results for {{ query }}<h2>
+        <div class="grid grid-cols-3 gap-3">
+
+            {% if items %}
+                {% for item in items %}
+                    <div>
+                        <a href ="{% url 'item:detail' item.id%}">
+                            <div>
+                                <img src="{{item.image.url}}" alt="{{item.name}}" class="rounded-t-xl text-l w-[470px] h-[280px]">
+                            </div>
+                            <div class="p-6 bg-white rounded-b-xl">
+                                <h2 class="text-xl">{{item.name}}</h2> 
+                                <p class="text-gray-500">${{item.price}}</p>
+                            </div>
+                        </a>
+                    </div>   
+                {% endfor %}    
+            {% else %}
+                <div class="text-center text-xl font-semibold text-gray-700">
+                    Sorry. No results found for "{{ query }}"
+                </div>
+            {% endif %} 
+            {% comment %}  potential search_history option
+            {% if search_history %}
+                <div class="absolute bg-white border rounded-md mt-1 p-2 shadow-md max-h-40 overflow-y-auto invisible opacity-0 transition-opacity duration-300">
+                    <ul>
+                        {% for history_item in search_history %}
+                            <li class="cursor-pointer">{{ history_item }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            {% endif %} {% endcomment %}
+        </div>    
+    </div>
+</div>
+{% endblock %}
+

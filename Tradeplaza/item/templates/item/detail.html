@@ -11,7 +11,11 @@
     <div class="col-span-2 p-6 bg-gray-100 rounded-xl">
         <h1 class="mb-6 text-3xl">{{item.name}} <h1>
         <p class="text-gray-500"><strong>Price: </strong> ${{item.price}}</p><br>
-        <p class="text-gray-500"><strong>Seller: </strong> {{item.created_by.username}}</p><br>
+        {% if request.user == item.created_by%}
+            <p class="text-gray-500"><strong>Seller: </strong> You </p><br>
+        {% else %}
+            <p class="text-gray-500"><strong>Seller: </strong> {{item.created_by.username}}</p><br>
+        {% endif %}
         {% if item.description%}
             <p class="text-gray-700">
                 <strong class = "text-gray-500">Description:</strong><br>
@@ -19,10 +23,21 @@
             </p>
         {% endif %}
         <br> 
-
-        <a href="#" class="bg-blue-400 hover:bg-blue-300 focus:bg-blue-500 focus:outline-none active:bg-blue-600 text-white font-bold py-3 px-6 rounded transition-all duration-300 text-center">
-            Contact Seller
-        </a>
+        {% if request.user == item.created_by%}
+            <div class=  "py-4 rounded-xl">
+                <a href="{%url 'item:edit' item.id%}" class=" py-2.5 px-5 me-2 mb-2 text-sm font-medium text-white focus:outline-none bg-blue-700 hover:bg-blue-800 rounded-lg border border-gray-200 focus:z-10 focus:ring-4 focus:ring-gray-200 text-center">
+                    Edit Item 
+                </a>
+                <a href="{%url 'item:delete' item.id%}" class="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2">
+                    Delete Item
+                </a>
+                <!--Add a delete confirmation pop-up here. Views and urls already done and template from already ready in "confirmation.html" if required.Just need to figure out a way through which we get the confirmation from user before deleting the item.-->
+            </div>
+        {% else %}
+            <a href="#" class=" py-2.5 px-5 me-2 mb-2 text-sm font-medium text-white focus:outline-none bg-blue-700 hover:bg-blue-800 rounded-lg border border-gray-200 focus:z-10 focus:ring-4 focus:ring-gray-200 text-center">
+                Contact Seller
+            </a>
+        {% endif %}
     </div>
 </div>
 
