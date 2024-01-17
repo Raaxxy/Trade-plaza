@@ -1,0 +1,70 @@
+{% extends 'core/base.html' %}
+
+{% block title %}Inbox{% endblock %}
+
+{% block content %}
+  <section class="flex flex-col justify-center bg-gray-50 text-gray-600  p-4">
+    <div class="h-full">
+        <!-- Card -->
+        <div class="relative max-w-[340px] mx-auto bg-white shadow-lg rounded-lg">
+            <!-- Card header -->
+            <header class="pt-6 pb-4 px-5 border-b border-gray-200">
+                <div class="flex justify-between items-center mb-3">
+                    <!-- Image + name -->
+                    <div class="flex items-center">
+                        <div class="inline-flex items-start mr-3" href="#0">
+                            <img class="rounded-full" src="https://svgrepo.com/show/416634/user-profile-avatar.svg" width="48" height="48" alt="Lauren Marsano" />
+                            
+  
+                        </div>
+                        <div class="pr-1">
+                            <div class="inline-flex text-gray-800 hover:text-gray-900" href="#0">
+                              {% for conversation in  conversations %}
+                              {% for member in conversation.members.all %} 
+                              {% if  member == request.user %}
+                              <h2 class="text-xl leading-snug font-bold">{{member.username}}</h2>   
+                              {% endif %}
+                              {% endfor %}  
+                              {% endfor %} 
+                            </div>
+                            <p class="block text-sm font-medium" >Tradeplaza User</p>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <!-- Card body -->
+            <div class="px-3  py-3">
+              <h3 class="text-xs font-semibold uppercase text-gray-400 mb-1">Chats</h3>
+              <div>
+                  <!-- Chat list -->
+                        {% for conversation in  conversations %}
+                        {% for member in conversation.members.all %} 
+                        {% if  member != request.user %}
+                        <a href="{% url 'conversation:detail' conversation.id%}">
+                            <div  class="p-2 border-b border-bg-gray-800 hover:bg-indigo-200 rounded">
+                                
+                                <div class="w-full text-left py-2 focus:outline-none focus-visible:bg-indigo-50">
+                                        <div class="flex items-center">
+                                            <img class="rounded-full items-start flex-shrink-0 mr-3" src="https://svgrepo.com/show/416634/user-profile-avatar.svg" width="32" height="32" alt="Marie Zulfikar" />
+                                            <div class="flex-grow "> 
+                                                <h4 class="flex justify-between text-gray-900 pt-2"> 
+                                                    <strong>{{member.username}}</strong>
+                                                    <span class="text-[13px] ">{{conversation.modified_at}}</span>
+                                                </h4>
+                                                <div class="flex-grow text-[13px] pt-1">Regarding : {{conversation.item}} </div>
+                                            </div>
+                                        </div>
+                                </div>
+                            </div>
+                        </a>
+                        {% endif %}
+                        {% endfor %}  
+                        {% endfor %} 
+              </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+{% endblock  %}
