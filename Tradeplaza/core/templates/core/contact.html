@@ -1,7 +1,123 @@
-{% extends 'core/base.html' %}
 
-{% block title %}Contact{% endblock %}
+{% comment %} {% extends 'core/base.html' %}
+
+{% block title %}Conversation{% endblock %}
 
 {% block content %}
-    <h1>The contacts page<h1>
+                <div class="flex justify-center min-h-screen">
+                    <div class="rounded-lg border flex flex-col justify-between gap-6 p-4 shadow-sm w-[600px] bg-cyan-200 ">
+                            {% for message in  conversation.messages.all %}
+                            <div class="gap-4 mt-4 flex-col flex overflow-auto {% if message.created_by == request.user %} items-end {% else %} items-start {% endif %}">
+                                
+                                {% if message.created_by == request.user %}  
+                                    <div class="flex items-start gap-2.5"> 
+                                        <div class="flex flex-col  max-w-[320px] leading-1.5 p-4 border-gray-200 {% if message.created_by == request.user %} bg-blue-800 {% else %} bg-gray-800 {% endif %} rounded-tl-lg rounded-b-lg ">
+                                            <div class="flex items-center space-x-2 rtl:space-x-reverse">
+                                                <span class="text-sm font-semibold text-gray-900 dark:text-white">{{message.created_by.username}}</span>
+                                                <span class="text-sm font-normal text-gray-500 dark:text-gray-400">{{message.created_at}}</span>
+                                            </div>
+                                            <p class="text-sm font-normal py-2.5 text-gray-900 dark:text-white">{{message.content}}</p>
+                                        </div>
+                                        <img class="w-8 h-8 rounded-full" src="https://svgrepo.com/show/416634/user-profile-avatar.svg" alt="profile-pic">
+                                    </div>
+
+                                    <div class="flex items-start gap-2.5"> 
+                                        <div class="flex flex-col  max-w-[320px] leading-1.5 p-4 border-gray-200 {% if message.created_by == request.user %} bg-blue-800 {% else %} bg-gray-800 {% endif %} rounded-tl-lg rounded-b-lg ">
+                                            <div class="flex items-center space-x-2 rtl:space-x-reverse">
+                                                <span class="text-sm font-semibold text-gray-900 dark:text-white">{{message.created_by.username}}</span>
+                                                <span class="text-sm font-normal text-gray-500 dark:text-gray-400">{{message.created_at}}</span>
+                                            </div>
+                                            <p class="text-sm font-normal py-2.5 text-gray-900 dark:text-white">{{message.content}}</p>
+                                        </div>
+                                        <img class="w-8 h-8 rounded-full" src="https://svgrepo.com/show/416634/user-profile-avatar.svg" alt="profile-pic">
+                                    </div>
+                                    <div class="flex items-start gap-2.5"> 
+                                        <div class="flex flex-col  max-w-[320px] leading-1.5 p-4 border-gray-200 {% if message.created_by == request.user %} bg-blue-800 {% else %} bg-gray-800 {% endif %} rounded-tl-lg rounded-b-lg ">
+                                            <div class="flex items-center space-x-2 rtl:space-x-reverse">
+                                                <span class="text-sm font-semibold text-gray-900 dark:text-white">{{message.created_by.username}}</span>
+                                                <span class="text-sm font-normal text-gray-500 dark:text-gray-400">{{message.created_at}}</span>
+                                            </div>
+                                            <p class="text-sm font-normal py-2.5 text-gray-900 dark:text-white">{{message.content}}</p>
+                                        </div>
+                                        <img class="w-8 h-8 rounded-full" src="https://svgrepo.com/show/416634/user-profile-avatar.svg" alt="profile-pic">
+                                    </div>
+                                    <div class="flex items-start gap-2.5"> 
+                                        <div class="flex flex-col  max-w-[320px] leading-1.5 p-4 border-gray-200 {% if message.created_by == request.user %} bg-blue-800 {% else %} bg-gray-800 {% endif %} rounded-tl-lg rounded-b-lg ">
+                                            <div class="flex items-center space-x-2 rtl:space-x-reverse">
+                                                <span class="text-sm font-semibold text-gray-900 dark:text-white">{{message.created_by.username}}</span>
+                                                <span class="text-sm font-normal text-gray-500 dark:text-gray-400">{{message.created_at}}</span>
+                                            </div>
+                                            <p class="text-sm font-normal py-2.5 text-gray-900 dark:text-white">{{message.content}}</p>
+                                        </div>
+                                        <img class="w-8 h-8 rounded-full" src="https://svgrepo.com/show/416634/user-profile-avatar.svg" alt="profile-pic">
+                                    </div>
+                                    <div class="flex items-start gap-2.5"> 
+                                        <div class="flex flex-col  max-w-[320px] leading-1.5 p-4 border-gray-200 {% if message.created_by == request.user %} bg-blue-800 {% else %} bg-gray-800 {% endif %} rounded-tl-lg rounded-b-lg ">
+                                            <div class="flex items-center space-x-2 rtl:space-x-reverse">
+                                                <span class="text-sm font-semibold text-gray-900 dark:text-white">{{message.created_by.username}}</span>
+                                                <span class="text-sm font-normal text-gray-500 dark:text-gray-400">{{message.created_at}}</span>
+                                            </div>
+                                            <p class="text-sm font-normal py-2.5 text-gray-900 dark:text-white">{{message.content}}</p>
+                                        </div>
+                                        <img class="w-8 h-8 rounded-full" src="https://svgrepo.com/show/416634/user-profile-avatar.svg" alt="profile-pic">
+                                    </div>
+                                    <div class="flex items-start gap-2.5"> 
+                                        <div class="flex flex-col  max-w-[320px] leading-1.5 p-4 border-gray-200 {% if message.created_by == request.user %} bg-blue-800 {% else %} bg-gray-800 {% endif %} rounded-tl-lg rounded-b-lg ">
+                                            <div class="flex items-center space-x-2 rtl:space-x-reverse">
+                                                <span class="text-sm font-semibold text-gray-900 dark:text-white">{{message.created_by.username}}</span>
+                                                <span class="text-sm font-normal text-gray-500 dark:text-gray-400">{{message.created_at}}</span>
+                                            </div>
+                                            <p class="text-sm font-normal py-2.5 text-gray-900 dark:text-white">{{message.content}}</p>
+                                        </div>
+                                        <img class="w-8 h-8 rounded-full" src="https://svgrepo.com/show/416634/user-profile-avatar.svg" alt="profile-pic">
+                                    </div>
+                                    <div class="flex items-start gap-2.5"> 
+                                        <div class="flex flex-col  max-w-[320px] leading-1.5 p-4 border-gray-200 {% if message.created_by == request.user %} bg-blue-800 {% else %} bg-gray-800 {% endif %} rounded-tl-lg rounded-b-lg ">
+                                            <div class="flex items-center space-x-2 rtl:space-x-reverse">
+                                                <span class="text-sm font-semibold text-gray-900 dark:text-white">{{message.created_by.username}}</span>
+                                                <span class="text-sm font-normal text-gray-500 dark:text-gray-400">{{message.created_at}}</span>
+                                            </div>
+                                            <p class="text-sm font-normal py-2.5 text-gray-900 dark:text-white">{{message.content}}</p>
+                                        </div>
+                                        <img class="w-8 h-8 rounded-full" src="https://svgrepo.com/show/416634/user-profile-avatar.svg" alt="profile-pic">
+                                    </div>
+                                    <div class="flex items-start gap-2.5"> 
+                                        <div class="flex flex-col  max-w-[320px] leading-1.5 p-4 border-gray-200 {% if message.created_by == request.user %} bg-blue-800 {% else %} bg-gray-800 {% endif %} rounded-tl-lg rounded-b-lg ">
+                                            <div class="flex items-center space-x-2 rtl:space-x-reverse">
+                                                <span class="text-sm font-semibold text-gray-900 dark:text-white">{{message.created_by.username}}</span>
+                                                <span class="text-sm font-normal text-gray-500 dark:text-gray-400">{{message.created_at}}</span>
+                                            </div>
+                                            <p class="text-sm font-normal py-2.5 text-gray-900 dark:text-white">{{message.content}}</p>
+                                        </div>
+                                        <img class="w-8 h-8 rounded-full" src="https://svgrepo.com/show/416634/user-profile-avatar.svg" alt="profile-pic">
+                                    </div>
+                                {% else %}  
+                                    <div class="flex items-start  gap-2.5">
+                                        <img class="w-8 h-8 rounded-full" src="https://svgrepo.com/show/416634/user-profile-avatar.svg" alt="profile-pic">
+                                        <div class="flex flex-col  max-w-[320px] leading-1.5 p-4 border-gray-200 {% if message.created_by == request.user %} bg-blue-800 {% else %} bg-gray-800 {% endif %} rounded-e-lg rounded-es-lg ">
+                                            <div class="flex items-center space-x-2 rtl:space-x-reverse">
+                                                <span class="text-sm font-semibold text-gray-900 dark:text-white">{{message.created_by.username}}</span>
+                                                <span class="text-sm font-normal text-gray-500 dark:text-gray-400">{{message.created_at}}</span>
+                                            </div>
+                                        <p class="text-sm font-normal py-2.5 text-gray-900 dark:text-white">{{message.content}}</p>
+                                        </div>
+                                    </div>
+                                {% endif %}
+
+                            </div>    
+                            {% endfor %}
+                        
+                        <form class="flex-none ">
+                            <label for="chat" class="sr-only">Your message</label>
+                            <div class="flex items-center px-3 py-2 rounded-lg bg-gray-50 dark:bg-gray-700">
+                                <textarea id="chat" rows="1" class="block mx-4 p-2.5  w-full text-sm text-gray-900 bg-white rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-800 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Your message..."></textarea>
+                                    <button class="flex justify-center items-center py-2.5 px-4 text-xs font-medium text-center text-white bg-blue-700 rounded-lg  hover:bg-blue-800">
+                                        Send message
+                                    </button>
+                            </div>
+                        </form>
+                    </div>        
+                </div>                     
 {% endblock  %}
+
+ {% endcomment %}

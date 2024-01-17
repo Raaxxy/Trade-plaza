@@ -34,7 +34,7 @@
                 <!--Add a delete confirmation pop-up here. Views and urls already done and template from already ready in "confirmation.html" if required.Just need to figure out a way through which we get the confirmation from user before deleting the item.-->
             </div>
         {% else %}
-            <a href="#" class=" py-2.5 px-5 me-2 mb-2 text-sm font-medium text-white focus:outline-none bg-blue-700 hover:bg-blue-800 rounded-lg border border-gray-200 focus:z-10 focus:ring-4 focus:ring-gray-200 text-center">
+            <a  href="{%url 'conversation:new' item.id%}" class=" py-2.5 px-5 me-2 mb-2 text-sm font-medium text-white focus:outline-none bg-blue-700 hover:bg-blue-800 rounded-lg border border-gray-200 focus:z-10 focus:ring-4 focus:ring-gray-200 text-center">
                 Contact Seller
             </a>
         {% endif %}
