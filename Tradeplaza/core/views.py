@@ -14,6 +14,12 @@ def index (request):
 def about (request):
     return render(request, 'core/about.html')
 
+def license (request):
+    return render(request, 'core/license.html')
+
+def policy (request):
+    return render(request, 'core/policy.html')
+
 def signup(request):
     if request.method == 'POST':
         form= SignupForm(request.POST)
