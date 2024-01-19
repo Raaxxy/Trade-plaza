@@ -3,37 +3,39 @@
 {% block title %}Contact Seller{% endblock %}
 
 {% block content %}  
-<div class="flex flex-col gap-4 items-center bg-gray-300 rounded-lg">
-
-    <div class="flex flex-col gap-4 px-3 py-2 w-full sm:w-2/3 md:w-1/2 lg:w-1/3 xl:w-1/4">
-        <p class="w-full text-xl border border-gray-200 rounded-lg bg-gray-50 dark:bg-gray-700 dark:border-gray-600 text-center text-white font-semibold flex justify-center px-3 py-2 border-t dark:border-gray-600">
-            You're messaging  {{ seller_info.seller_username }} for this item
-        </p>
-        <div class="w-full bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-            <div class="px-5 pb-5">
-                <img class="p-8 rounded-t-lg w-full h-[280px] object-cover" src="{{item_details.item_image.url}}" alt="{{item_details.item_name}}" />
-                <h5 class="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">{{item_details.item_name}}</h5>
-                <div class="flex items-center justify-between">
-                    <span class="text-3xl font-bold text-gray-900 dark:text-white">${{item_details.item_price}}</span>
+<div class="bg-gray-900 p-6 h-screen">
+    <div class="flex-none justify-center rounded-lg  md:mt-0 sm:max-w-md xl:p-0 bg-gray-800  items-center mx-auto">
+        <div class="flex flex-col gap-4 p-4 space-y-4 md:space-y-6 sm:p-6">
+            <div class="flex flex-col gap-4 px-3 py-2">
+                <div class="w-full text-xl  rounded-lg bg-gray-800  text-center text-white font-bold flex justify-center px-3 py-2 ">
+                    You're messaging  {{ seller_info.seller_username }} for this item
                 </div>
-            </div>
-        </div>
-    </div>     
-
-    <div class="text-xl flex-none rounded-lg text-white font-semibold pb-2 w-full sm:w-2/3 md:w-1/2 lg:w-1/3 xl:w-1/4">
-        <form method="post" action=".">
-            {% csrf_token %}                  
-            <div class="flex items-center px-3 py-2 rounded-lg bg-gray-50 dark:bg-gray-700">
-               {{ form.content }} 
-                <button class="ml-2 py-2.5 px-4 text-xs font-medium text-white bg-blue-700 rounded-lg hover:bg-blue-800">
-                   Send message
-               </button>
+                <hr>
+                <div class="w-full rounded-lg shadow">
+                    <div >
+                        <img class="p-4 rounded-t-lg w-full h-[280px] object-cover" src="{{item_details.item_image.url}}" alt="{{item_details.item_name}}" />
+                        <div class="flex flex-row gap-8 justify-center items-center">
+                            <h5 class="text-3xl font-semibold tracking-tight text-gray-900 dark:text-white">{{item_details.item_name}}</h5>
+                            <span class="text-3xl font-bold text-gray-900 dark:text-white">${{item_details.item_price}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>     
+        
+            <div class="text-xl flex-none rounded-lg text-white font-semibold pb-2 w-full">
+                <form method="post" action=".">
+                    {% csrf_token %}                  
+                    <div class="flex items-center px-3 py-2 rounded-lg bg-gray-800">
+                       {{ form.content }} 
+                        <button class="ml-2 py-2.5 px-4 text-sm font-medium text-white bg-blue-700 rounded-lg hover:bg-blue-800">
+                           Send
+                       </button>
+                    </div> 
+                </form>
             </div> 
-        </form>
+        </div>
+           
     </div>
-
+    <p class="flex justify-center ms-auto text-xs p-2 text-neutral-900 text-white">We are not responsible for the actions, products, or services of users on our platform, and we do not guarantee the quality, safety, or legality of the products or services offered.</p>
 </div>
-
-<p class="flex justify-center ms-auto text-xs text-neutral-900 dark:text-gray-400">We are not responsible for the actions, products, or services of users on our platform, and we do not guarantee the quality, safety, or legality of the products or services offered.</p>
-
 {% endblock %}

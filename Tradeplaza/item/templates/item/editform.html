@@ -3,35 +3,45 @@
 {% block title %}{{ title }}{% endblock %}
 
 {% block content %}
-    <h1 class="mb-6 text-3xl font-semibold text-center">Edit Item</h1>
-    <div class="relative flex flex-col justify-center items-center rounded-lg shadow bg-white p-4 sm:p-6 lg:p-8">
-        <form method="post" action="." enctype="multipart/form-data">
-            {% csrf_token %}
-            <div class="grid gap-4 mb-4 sm:grid-cols-2">
-                <div>
-                    <label for="name" class="block mb-2 text-sm font-medium text-gray-900">Name</label>
-                    {{ form.name }}
-                </div>
-                <div>
-                    <label for="brand" class="block mb-2 text-sm font-medium text-gray-900">Image</label>
-                    {{ form.image }}
-                </div>
-                <div>
-                    <label for="price" class="block mb-2 text-sm font-medium text-gray-900">Price</label>
-                    {{ form.price }}
-                </div>
-                <div>
-                    <label for="is_sold" class="block mb-2 text-sm font-medium text-gray-900">Is sold?</label>
-                    {{ form.is_sold }}
-                </div>
-                <div class="sm:col-span-2">
-                    <label for="description" class="block mb-2 text-sm font-medium text-gray-900">Description</label>
-                    {{ form.description }}
-                </div>
+<div class="bg-gray-900 px-6 py-8 ">
+    <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto lg:py-0">
+        <div class="w-full rounded-lg shadow md:mt-0 sm:max-w-lg mx-4 md:mx-auto bg-gray-800">
+            <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
+                <h1 class="text-xl font-bold leading-tight tracking-tight text-white md:text-2xl">
+                    Edit Item
+                </h1>
+                <form method="post" action="." enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="grid gap-4 mb-4 sm:grid-cols-2">
+                        <div>
+                            <label for="name" class="block mb-2 text-sm font-medium text-white">Name</label>
+                            {{ form.name }}
+                        </div>
+                        <div>
+                            <label for="brand" class="block mb-2 text-sm font-medium text-white">Image</label>
+                            {{ form.image }}
+                        </div>
+                        <div>
+                            <label for="price" class="block mb-2 text-sm font-medium text-white">Price</label>
+                            {{ form.price }}
+                        </div>
+                        <div>
+                            <label for="is_sold" class="block mb-2 text-sm font-medium text-white">Stock</label>
+                            <div class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                Out of stock &nbsp; {{ form.is_sold }}
+                            </div>
+                        </div>
+                        <div class="sm:col-span-2">
+                            <label for="description" class="block mb-2 text-sm font-medium text-white">Description</label>
+                            {{ form.description }}
+                        </div>
+                    </div>
+                    <button class="w-full mt-3 text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">
+                        Submit
+                    </button>
+                </form>
             </div>
-            <button class="w-full mt-3 text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">
-                Submit
-            </button>
-        </form>
+        </div>
     </div>
+</div>
 {% endblock %}

@@ -3,43 +3,52 @@
 {% block title %}{{ title }}{% endblock %}
 
 {% block content %}
-    <h1 class="mb-6 text-3xl font-semibold flex justify-center">List an Item</h1>
-    <div class="relative flex flex-col justify-center items-center rounded-lg shadow bg-white p-4 sm:p-6 lg:p-8">
-        <form method="post" action="." enctype="multipart/form-data">
-            {% csrf_token %}
-            <div class="grid gap-4 mb-4 sm:grid-cols-2">
-                <div>
-                    <label for="name" class="block mb-2 text-sm font-medium text-gray-900">Name</label>
-                    {{ form.name }}
-                </div>
-                <div>
-                    <label for="image" class="block mb-2 text-sm font-medium text-gray-900">Image</label>
-                    {{ form.image }}
-                </div>
-                <div>
-                    <label for="price" class="block mb-2 text-sm font-medium text-gray-900">Price</label>
-                    {{ form.price }}
-                </div>
-                <div>
-                    <label for="category" class="block mb-2 text-sm font-medium text-gray-900">Category</label>
-                    {{ form.category }}
-                </div>
-                <div class="sm:col-span-2">
-                    <label for="description" class="block mb-2 text-sm font-medium text-gray-900">Description</label>
-                    {{ form.description }}
-                </div>
+<div class="bg-gray-900 px-6 py-8 ">
+    <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto lg:py-0">
+        <div class="w-full rounded-lg shadow md:mt-0 sm:max-w-lg mx-4 md:mx-auto bg-gray-800">
+            <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
+                <h1 class="text-xl font-bold leading-tight tracking-tight text-white md:text-2xl">
+                    List an Item
+                </h1>
+                <form method="post" action="." enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="grid gap-4 mb-4 sm:grid-cols-2">
+                        <div>
+                            <label for="name" class="block mb-2 text-sm font-medium text-white">Name</label>
+                            {{ form.name }}
+                        </div>
+                        <div>
+                            <label for="image" class="block mb-2 text-sm font-medium text-white">Image</label>
+                            {{ form.image }}
+                        </div>
+                        <div>
+                            <label for="price" class="block mb-2 text-sm font-medium text-white">Price</label>
+                            {{ form.price }}
+                        </div>
+                        <div>
+                            <label for="category" class="block mb-2 text-sm font-medium text-white">Category</label>
+                            {{ form.category }}
+                        </div>
+                        <div class="sm:col-span-2">
+                            <label for="description" class="block mb-2 text-sm font-medium text-white">Description</label>
+                            {{ form.description }}
+                        </div>
+                    </div>
+                    {% if form.errors or form.non_field_errors %}
+                        <div class="mb-3 p-6 bg-red-100 rounded-xl">
+                            {% for field in form %}
+                                {{ field.errors }}
+                            {% endfor %}
+                            {{ form.non_field_errors }}
+                        </div>
+                    {% endif %}
+                    <button class="w-full  mt-3 text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">
+                        Submit
+                    </button>
+                </form>
             </div>
-            {% if form.errors or form.non_field_errors %}
-                <div class="mb-3 p-6 bg-red-100 rounded-xl">
-                    {% for field in form %}
-                        {{ field.errors }}
-                    {% endfor %}
-                    {{ form.non_field_errors }}
-                </div>
-            {% endif %}
-            <button class="w-full sm:w-[580px] mt-3 text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">
-                Submit
-            </button>
-        </form>
+        </div>
     </div>
+</div>
+
 {% endblock %}
