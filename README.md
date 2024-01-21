@@ -21,9 +21,8 @@ Tradeplaza is more than just a marketplace; it's a community of traders. Whether
 - [Usage](#usage)
 - [Features](#features)
 - [Tech Stack](#tech-stack)
-- [Contributing](#contributing)
-- [License](#license)
 - [Contact](#contact)
+- [Note from Dev](#note)
 
 ## Installation
 
@@ -89,7 +88,7 @@ Tradeplaza is built with the following technologies:
 
 If you have any questions or want to reach out to the Tradeplaza team, please [open an issue](https://github.com/Raaxxy/Trade-plaza/issues) on our GitHub repository.
 
-## Note from the Developer
+## Note
 
 This repository is maintained by me in my free time. I am committed to improving and updating Tradeplaza to provide the best possible experience for our users. I appreciate your patience and understanding if there are delays in updates or responses to issues.
 
