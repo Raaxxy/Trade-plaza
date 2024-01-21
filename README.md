@@ -1,4 +1,4 @@
-# Tradeplaza: Your User-Friendly E-commerce Marketplace for Buying and Selling with Ease
+# Tradeplaza: Your User-Friendly E-commerce Marketplace
 
 ![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
 ![TailwindCSS](https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white)
@@ -29,7 +29,7 @@ Tradeplaza is more than just a marketplace; it's a community of traders. Whether
 
 1. Clone the repository:
 ```
-git clone https://github.com/Raaxxy/.Trade-plaza.git
+git clone https://github.com/Raaxxy/Trade-plaza.git
 ```
 2. Navigate to the project directory:
 ```
@@ -87,7 +87,7 @@ Tradeplaza is built with the following technologies:
 
 ## Contact
 
-If you have any questions or want to reach out to the Tradeplaza team, please [open an issue](https://github.com/Raaxxy//issues) on our GitHub repository.
+If you have any questions or want to reach out to the Tradeplaza team, please [open an issue](https://github.com/Raaxxy/Trade-plaza/issues) on our GitHub repository.
 
 ## Note from the Developer
 
