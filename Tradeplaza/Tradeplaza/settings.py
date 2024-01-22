@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'item',
     'dashboard',
     'conversation',
+    'storages',
 ]
 
 MIDDLEWARE = [
@@ -132,3 +133,52 @@ MEDIA_ROOT = BASE_DIR / 'media'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+# AWS configuration
+
+
+AWS_ACCESS_KEY_ID = 'AKIAXYKJWYKMXLEX2JXU'
+AWS_SECRET_ACCESS_KEY = '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'
+
+
+
+# Basic Storage configuration for Amazon S3 (Irrespective of Django versions)
+
+
+
+AWS_STORAGE_BUCKET_NAME = 'tradeplaza-bkt-01' # - Enter your S3 bucket name HERE
+
+AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
+
+AWS_S3_FILE_OVERWRITE = False
+
+
+
+# Django < 4.2
+
+'''
+
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+
+'''
+
+# Django 4.2 >
+
+
+STORAGES = {
+
+    # Media file (image) management   
+    "default": {
+        "BACKEND": "storages.backends.s3boto3.S3StaticStorage",
+    },
+    
+    # CSS and JS file management
+    "staticfiles": {
+        "BACKEND": "storages.backends.s3boto3.S3StaticStorage",
+    },
+}
+
+
+
