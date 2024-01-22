@@ -127,7 +127,7 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 MEDIA_URL = f'https://tradeplaza-bkt-01.s3.amazonaws.com/media/'
-MEDIA_ROOT = BASE_DIR / 'media'
+#MEDIA_ROOT = BASE_DIR / 'media'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
@@ -138,8 +138,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # AWS configuration
 
 
-AWS_ACCESS_KEY_ID = 'AKIAXYKJWYKMXLEX2JXU'
-AWS_SECRET_ACCESS_KEY = '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'
+AWS_ACCESS_KEY_ID = env('AWS_KEY')
+AWS_SECRET_ACCESS_KEY = env('AWS_SECRETKEY')
 
 
 
