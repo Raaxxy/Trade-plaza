@@ -83,12 +83,3 @@ def delete(request,pk):
     item.delete()
     return redirect('dashboard:index')
 
-def delete_confirmation(request,pk):
-    item = get_object_or_404(Item,pk=pk,created_by=request.user)
-    return render(request, 'item/confirmation.html', {
-        'item': item
-    })
-
-def cancel_delete(request):
-    return redirect('dashboard:index')
-
