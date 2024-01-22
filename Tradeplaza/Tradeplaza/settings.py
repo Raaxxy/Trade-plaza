@@ -125,8 +125,8 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
-STATIC_URL = 'static/'
-MEDIA_URL = f'https://tradeplaza-bkt-01.s3.amazonaws.com/media/'
+STATIC_URL = 'https://tradeplaza-bkt-01.s3.amazonaws.com/static/'
+MEDIA_URL = 'https://tradeplaza-bkt-01.s3.amazonaws.com/media/'
 #MEDIA_ROOT = BASE_DIR / 'media'
 
 # Default primary key field type
@@ -151,7 +151,7 @@ AWS_STORAGE_BUCKET_NAME = 'tradeplaza-bkt-01' # - Enter your S3 bucket name HERE
 
 AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
 
-AWS_S3_FILE_OVERWRITE = False
+AWS_S3_FILE_OVERWRITE = True
 
 
 
