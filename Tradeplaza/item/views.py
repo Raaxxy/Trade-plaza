@@ -22,7 +22,7 @@ def items(request):
     if category_id:
         items = items.filter(category_id=category_id)
     if query:
-        items = items.filter(Q(name__icontains=query) | Q(description__icontains=query))
+        items = items.filter(Q(name__icontains=query))
     
     return render(request, 'item/items.html',{
         'items':items,
@@ -37,7 +37,7 @@ def detail(request,pk):
     related_items = Item.objects.filter(category=item.category,is_sold=False).exclude(pk=pk)[0:3]
     return render(request,'item/detail.html',{
         'item' : item,
-        'related_items' : related_items
+        'related_items' : related_items,
     })
 
 @login_required
