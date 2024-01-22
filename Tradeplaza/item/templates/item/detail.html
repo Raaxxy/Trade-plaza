@@ -6,10 +6,9 @@
 <div class="bg-gray-900 p-8">
 
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        <div class="w-full border border-gray-200 rounded-lg p-8 shadow bg-gray-800 dark:border-gray-700 hover:shadow-md transition-shadow">
-            <img src="{{ item.image.url }}" class="w-full h-auto] object-cover object-center" alt="{{ item.name }}">
+        <div class="w-full max-h-screen border border-gray-200 rounded-lg p-8 shadow bg-gray-800 dark:border-gray-700 hover:shadow-md transition-shadow" style="aspect-ratio: 16 / 9; overflow: hidden;">
+            <img src="{{ item.image.url }}" style="width: 100%; height: 100%; object-fit: cover;" alt="{{ item.name }}">
         </div>
-
         <div class="w-full border border-gray-200 rounded-lg p-8 shadow bg-gray-800 dark:border-gray-700 hover:shadow-md transition-shadow">
             <h1 class="mb-6 text-3xl text-white"><strong>{{ item.name }}</strong></h1>
             <p class="text-white text-2xl">Price: <strong>${{ item.price }}</strong> </p><br>
@@ -32,10 +31,9 @@
                     <a href="{% url 'item:edit' item.id %}" class="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 shadow-lg shadow-blue-500/50 dark:shadow-lg  font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 ">
                         Edit Item 
                     </a>
-                    <a href="{% url 'item:delete' item.id %}" class="ml-1 text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 shadow-lg shadow-red-500/50 dark:shadow-lg  font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">
+                    <a href="{% url 'item:delete' item.id %}" data-modal-target="popup-modal" data-modal-toggle="popup-modal" class="ml-1 text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 shadow-lg shadow-red-500/50 dark:shadow-lg  font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">
                         Delete Item
-                    </a>
-                    <!-- Add a delete confirmation pop-up here. Views and urls already done and template from already ready in "confirmation.html" if required. Just need to figure out a way through which we get the confirmation from the user before deleting the item. -->
+                    </a> 
                 </div>
             {% else %}
                 <a href="{% url 'conversation:new' item.id %}" class="py-2.5 px-5 me-2 mb-2 text-sm font-medium text-white focus:outline-none bg-blue-700 hover:bg-blue-800 rounded-lg border border-gray-200 focus:z-10 focus:ring-4 focus:ring-gray-200 text-center">
@@ -48,7 +46,7 @@
     <div class="mt-6">
         <h2 class="mb-12 text-3xl font-semibold text-white text-center">Related items</h2>
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
-            {% for related_item in related_items %}
+            {% for item in related_items %}
                 <div class="w-full max-w-sm border border-gray-200 rounded-lg shadow bg-gray-800 dark:border-gray-700 hover:shadow-md transition-shadow">
                     <a href="{% url 'item:detail' item.id%}">
                         <img class="p-8 rounded-t-lg w-full h-[280px]"
@@ -87,7 +85,7 @@
                         </div>
                     </div>
                 </div>
-                {% endfor %}
+            {% endfor %}
         </div>
     </div>
 </div>
