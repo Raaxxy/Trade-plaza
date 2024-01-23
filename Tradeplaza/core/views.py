@@ -2,11 +2,14 @@ from django.shortcuts import render,redirect
 from django.contrib.auth import logout
 from item.models import Category,Item
 from .forms import SignupForm
+import random
 
 def index (request):
-    items = Item.objects.filter(is_sold=False)[0:6]
+    items = Item.objects.filter(is_sold=False)
     categories = Category.objects.all()
+    random_items = random.sample(list(items),6)
     return render(request, 'core/index.html', {
+        'random_items': random_items,
         'categories': categories,
         'items': items,
     })
